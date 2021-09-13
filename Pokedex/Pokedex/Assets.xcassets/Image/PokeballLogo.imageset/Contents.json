@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "PinClipart.com_pokeball-clipart_2892313.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}
