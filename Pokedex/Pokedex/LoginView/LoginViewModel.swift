@@ -7,9 +7,30 @@
 
 import Foundation
 
+enum Action {
+    case signIn, signUp
+}
+
 class LoginViewModel: ObservableObject {
     
     @Published var loginData: LoginData = LoginData()
+    
+    var isSignedIn: Bool { true }
+    
+    func send(_ action: Action) {
+        switch action {
+        case .signIn: signIn(with: loginData)
+        case .signUp: signUp(with: loginData)
+        }
+    }
+    
+    private func signIn(with loginData: LoginData) {
+        
+    }
+    
+    private func signUp(with loginData: LoginData) {
+        
+    }
     
 }
 
