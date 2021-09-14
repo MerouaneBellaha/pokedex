@@ -16,22 +16,18 @@ class LoginViewModel: ObservableObject {
     @Published var loginData: LoginData = LoginData()
     
     var isSignedIn: Bool { true }
+    private let auth: AuthWrapperProtocol
+    
+    init(auth: AuthWrapperProtocol = FirebaseAuthWrapper()) {
+        self.auth = auth
+    }
     
     func send(_ action: Action) {
         switch action {
-        case .signIn: signIn(with: loginData)
-        case .signUp: signUp(with: loginData)
+        case .signIn: auth.signIn(with: loginData)
+        case .signUp: auth.signUp(with: loginData)
         }
     }
-    
-    private func signIn(with loginData: LoginData) {
-        
-    }
-    
-    private func signUp(with loginData: LoginData) {
-        
-    }
-    
 }
 
 struct LoginData {

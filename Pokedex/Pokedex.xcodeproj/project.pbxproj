@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		32271C0ADD85EDCF225D614B /* Pods_Pokedex_PokedexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9830494C5A6BBD84B897C1E1 /* Pods_Pokedex_PokedexUITests.framework */; };
 		633BF0E96C9834664A068078 /* Pods_Pokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD98298EDF939FB45385F71F /* Pods_Pokedex.framework */; };
+		CB82857D26F127FE001411A8 /* FireBaseAuthWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82857C26F127FE001411A8 /* FireBaseAuthWrapper.swift */; };
+		CB82858126F12866001411A8 /* loginFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82858026F12866001411A8 /* loginFieldStyle.swift */; };
+		CB82858426F1289F001411A8 /* Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82858326F1289F001411A8 /* Center.swift */; };
+		CB82858726F128D1001411A8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82858626F128D1001411A8 /* Color.swift */; };
 		CB9AA64B26F0793600E73B59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB9AA64A26F0793600E73B59 /* GoogleService-Info.plist */; };
 		CBEB432926EF25B0008D9AD2 /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB432826EF25B0008D9AD2 /* PokedexApp.swift */; };
 		CBEB432B26EF25B0008D9AD2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB432A26EF25B0008D9AD2 /* LoginView.swift */; };
@@ -44,6 +48,10 @@
 		5C21DD8E0B91439798FFD73A /* Pods-Pokedex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex.release.xcconfig"; path = "Target Support Files/Pods-Pokedex/Pods-Pokedex.release.xcconfig"; sourceTree = "<group>"; };
 		8C99EE9967C6558B2B55A3AC /* Pods-PokedexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokedexTests.release.xcconfig"; path = "Target Support Files/Pods-PokedexTests/Pods-PokedexTests.release.xcconfig"; sourceTree = "<group>"; };
 		9830494C5A6BBD84B897C1E1 /* Pods_Pokedex_PokedexUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex_PokedexUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB82857C26F127FE001411A8 /* FireBaseAuthWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAuthWrapper.swift; sourceTree = "<group>"; };
+		CB82858026F12866001411A8 /* loginFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginFieldStyle.swift; sourceTree = "<group>"; };
+		CB82858326F1289F001411A8 /* Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Center.swift; sourceTree = "<group>"; };
+		CB82858626F128D1001411A8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CB9AA64A26F0793600E73B59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBEB432526EF25B0008D9AD2 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEB432826EF25B0008D9AD2 /* PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexApp.swift; sourceTree = "<group>"; };
@@ -114,6 +122,48 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CB82857B26F127EF001411A8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CB82857C26F127FE001411A8 /* FireBaseAuthWrapper.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CB82857E26F12816001411A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CB82858226F12889001411A8 /* ViewBuilders */,
+				CB82857F26F1283E001411A8 /* ViewModifiers */,
+				CBEB435526EF2A29008D9AD2 /* LoginView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CB82857F26F1283E001411A8 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				CB82858026F12866001411A8 /* loginFieldStyle.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		CB82858226F12889001411A8 /* ViewBuilders */ = {
+			isa = PBXGroup;
+			children = (
+				CB82858326F1289F001411A8 /* Center.swift */,
+			);
+			path = ViewBuilders;
+			sourceTree = "<group>";
+		};
+		CB82858526F128C2001411A8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CB82858626F128D1001411A8 /* Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CBEB431C26EF25B0008D9AD2 = {
 			isa = PBXGroup;
 			children = (
@@ -139,7 +189,9 @@
 		CBEB432726EF25B0008D9AD2 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
-				CBEB435526EF2A29008D9AD2 /* LoginView */,
+				CB82858526F128C2001411A8 /* Extensions */,
+				CB82857E26F12816001411A8 /* Views */,
+				CB82857B26F127EF001411A8 /* Auth */,
 				CBEB432826EF25B0008D9AD2 /* PokedexApp.swift */,
 				CBEB432C26EF25B0008D9AD2 /* Assets.xcassets */,
 				CB9AA64A26F0793600E73B59 /* GoogleService-Info.plist */,
@@ -422,8 +474,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB82857D26F127FE001411A8 /* FireBaseAuthWrapper.swift in Sources */,
+				CB82858126F12866001411A8 /* loginFieldStyle.swift in Sources */,
+				CB82858726F128D1001411A8 /* Color.swift in Sources */,
 				CBEB432B26EF25B0008D9AD2 /* LoginView.swift in Sources */,
 				CBEB432926EF25B0008D9AD2 /* PokedexApp.swift in Sources */,
+				CB82858426F1289F001411A8 /* Center.swift in Sources */,
 				CBEB435426EF2769008D9AD2 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
