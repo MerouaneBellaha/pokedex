@@ -31,7 +31,7 @@ struct LoginView: View {
     
     private func setupStyle() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor:  UIColor(Color("AccentBlue"))]
-           UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("AccentBlue"))]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("AccentBlue"))]
     }
 }
 
@@ -51,14 +51,14 @@ extension LoginView {
             SecureField("password",
                         text: $vm.loginData.password)
                 .loginFieldStyle()
-            submitButton
+            submitButton(title: "Sign in", action: vm.send(.signIn))
         }
         .padding()
     }
     
-    private var submitButton: some View {
-        Button(action: {}, label: {
-            Text("Sign in")
+    private func submitButton(title: String, action: ()) -> some View {
+        Button(action: {action}, label: {
+            Text(title)
                 .frame(width: 200, height: 50)
                 .background(Color.accentBlue)
                 .cornerRadius(8)
