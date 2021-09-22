@@ -7,41 +7,59 @@
 
 import Foundation
 
-enum Action {
+enum LoginAction {
+    case signIn, signUp
+}
+
+enum LoginViewState {
     case signIn, signUp
 }
 
 class LoginViewModel: ObservableObject {
     
-    @Published var loginData: LoginData = LoginData()
+    @Published var loginData: LoginData = LoginData()    
+    
+    var viewStateModel: LoginViewStateModel = LoginViewStateModel()
+    var viewState: LoginViewState
+    var appState: AppState
     
     private let auth: AuthWrapperProtocol
     
-    init(auth: AuthWrapperProtocol = FirebaseAuthWrapper()) {
+    init(_ viewState: LoginViewState, state: AppState, auth: AuthWrapperProtocol = FirebaseAuthWrapper()) {
+        self.viewState = viewState
         self.auth = auth
+        self.appState = state
+        setUp()
     }
     
-    func send(_ action: Action) {
-        switch action {
-        case .signIn: signIn(with: loginData)
-        case .signUp: signUp(with: loginData)
+    private func setUp() {
+        switch viewState {
+        case .signIn: viewStateModel = LoginViewStateModel(buttonAction: .signIn, buttonTitle: "sign in", navigationTitle: "Welcome !")
+        case .signUp: viewStateModel = LoginViewStateModel(buttonAction: .signUp, buttonTitle: "sign up", navigationTitle: "Create account !")
         }
     }
     
-    private func signIn(with: LoginData) {
+    func send(_ action: LoginAction) {
+        switch action {
+        case .signIn: signIn()
+        case .signUp: signUp()
+        }
+    }
+    
+    private func signIn() {
         auth.signIn(with: loginData) { result in
             switch result {
             case .failure(let error): print(error)
-            case .success(_): print("signIn Success")
+            case .success(_): self.appState.isSignedIn.toggle()
             }
         }
     }
     
-    private func signUp(with: LoginData) {
+    private func signUp() {
         auth.signUp(with: loginData) { result in
             switch result {
             case .failure(let error): print(error)
-            case .success(_): print("signUp Success")
+            case .success(_): self.appState.isSignedIn.toggle()
             }
         }
     }
@@ -50,4 +68,10 @@ class LoginViewModel: ObservableObject {
 struct LoginData {
     var email: String = ""
     var password: String = ""
+}
+
+struct LoginViewStateModel {
+    var buttonAction: LoginAction = .signIn
+    var buttonTitle = ""
+    var navigationTitle = ""
 }

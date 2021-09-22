@@ -13,6 +13,7 @@
 		CB82858126F12866001411A8 /* loginFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82858026F12866001411A8 /* loginFieldStyle.swift */; };
 		CB82858426F1289F001411A8 /* Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82858326F1289F001411A8 /* Center.swift */; };
 		CB82858726F128D1001411A8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82858626F128D1001411A8 /* Color.swift */; };
+		CB883E1D26FB08A3004800F4 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB883E1C26FB08A3004800F4 /* LogoutButton.swift */; };
 		CB9AA64B26F0793600E73B59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB9AA64A26F0793600E73B59 /* GoogleService-Info.plist */; };
 		CBEB432926EF25B0008D9AD2 /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB432826EF25B0008D9AD2 /* PokedexApp.swift */; };
 		CBEB432B26EF25B0008D9AD2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB432A26EF25B0008D9AD2 /* LoginView.swift */; };
@@ -55,6 +56,7 @@
 		CB82858026F12866001411A8 /* loginFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginFieldStyle.swift; sourceTree = "<group>"; };
 		CB82858326F1289F001411A8 /* Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Center.swift; sourceTree = "<group>"; };
 		CB82858626F128D1001411A8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CB883E1C26FB08A3004800F4 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		CB9AA64A26F0793600E73B59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBEB432526EF25B0008D9AD2 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEB432826EF25B0008D9AD2 /* PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexApp.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		CB82857E26F12816001411A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB883E1B26FB0885004800F4 /* Components */,
 				CB82858226F12889001411A8 /* ViewBuilders */,
 				CB82857F26F1283E001411A8 /* ViewModifiers */,
 				CBEB435526EF2A29008D9AD2 /* LoginView */,
@@ -170,6 +173,14 @@
 				CBEEFA3826F1C632000F1B35 /* Optional+isDefined.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CB883E1B26FB0885004800F4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CB883E1C26FB08A3004800F4 /* LogoutButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		CBEB431C26EF25B0008D9AD2 = {
@@ -491,6 +502,7 @@
 				CBEB432B26EF25B0008D9AD2 /* LoginView.swift in Sources */,
 				CBEB432926EF25B0008D9AD2 /* PokedexApp.swift in Sources */,
 				CB82858426F1289F001411A8 /* Center.swift in Sources */,
+				CB883E1D26FB08A3004800F4 /* LogoutButton.swift in Sources */,
 				CBEB435426EF2769008D9AD2 /* LoginViewModel.swift in Sources */,
 				CBEEFA3926F1C632000F1B35 /* Optional+isDefined.swift in Sources */,
 			);

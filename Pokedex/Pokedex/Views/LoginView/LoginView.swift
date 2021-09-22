@@ -5,26 +5,34 @@
 //  Created by Merouane Bellaha on 13/09/2021.
 //
 
-
-//https://www.youtube.com/watch?v=vPCEIPL0U_k
-
 import SwiftUI
 
 struct LoginView: View {
     
-    init() { setupStyle() }
-    
-    @StateObject var vm = LoginViewModel()
+    @ObservedObject var vm: LoginViewModel
+    @EnvironmentObject var appState: AppState
+
+    init(_ viewModel: LoginViewModel) {
+        self.vm = viewModel
+        setupStyle()
+    }
     
     var body: some View {
         NavigationView {
             ZStack {
                 Color.darkRed.edgesIgnoringSafeArea(.all)
-                VStack(spacing: 45) {
-                        logo
-                        loginFields
-                }
-                .navigationTitle("Welcome !")
+                    VStack(spacing: 35) {
+                            logo
+                            loginFields
+                            submitButton(
+                                title: vm.viewStateModel.buttonTitle,
+                                action: { vm.send(vm.viewStateModel.buttonAction) }
+                            )
+                        NavigationLink("Create account",
+                                       destination: LoginView(LoginViewModel(.signUp, state: appState)))
+                            .padding(.top, -30)
+                    }
+                    .navigationTitle(vm.viewStateModel.navigationTitle)
             }
         }
     }
@@ -47,17 +55,16 @@ extension LoginView {
         VStack(spacing: 16) {
             TextField("email adress",
                       text: $vm.loginData.email)
-                .loginFieldStyle()
+                .loginFieldSetUp()
             SecureField("password",
                         text: $vm.loginData.password)
-                .loginFieldStyle()
-            submitButton(title: "Sign in", action: vm.send(.signIn))
+                .loginFieldSetUp()
         }
         .padding()
     }
     
-    private func submitButton(title: String, action: ()) -> some View {
-        Button(action: {action}, label: {
+    private func submitButton(title: String, action: @escaping () -> Void) -> some View {
+        Button(action: action, label: {
             Text(title)
                 .frame(width: 200, height: 50)
                 .background(Color.accentBlue)
@@ -69,7 +76,7 @@ extension LoginView {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(LoginViewModel(.signIn, state: AppState()))
             .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
             .previewDisplayName("iPhone 12")
     }

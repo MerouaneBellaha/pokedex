@@ -11,11 +11,12 @@ import FirebaseAuth
 protocol AuthWrapperProtocol {
     func signIn(with loginData: LoginData, completion: @escaping (Result<Bool, Error>) -> ())
     func signUp(with loginData: LoginData, completion: @escaping (Result<Bool, Error>) -> ())
+    func signout(completion: @escaping (Result<Bool, Error>) -> ())
 }
 
 struct FirebaseAuthWrapper: AuthWrapperProtocol {
     
-    let auth = Auth.auth()
+    private let auth = Auth.auth()
     var isSignedIn: Bool { auth.currentUser.isDefined }
     
     func signIn(with loginData: LoginData, completion: @escaping (Result<Bool, Error>) -> ()) {
@@ -30,5 +31,15 @@ struct FirebaseAuthWrapper: AuthWrapperProtocol {
             guard result.isDefined, error.isNotDefined else { return completion(.failure(error!)) }
             completion(.success(true))
         }
+    }
+    
+    func signout(completion: @escaping (Result<Bool, Error>) -> ()) {
+        do {
+            try auth.signOut()
+            completion(.success(true))
+        } catch {
+            completion(.failure(error))
+        }
+        
     }
 }

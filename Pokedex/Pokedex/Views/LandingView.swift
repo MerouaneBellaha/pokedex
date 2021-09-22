@@ -13,9 +13,10 @@ struct LandingView: View {
     
     var body: some View {
         if appState.isSignedIn {
-            Text("")
+            Text("you are signed in")
+            LogoutButton()
         } else {
-            LoginView()
+            LoginView(LoginViewModel(.signIn, state: appState))
         }
     }
 }

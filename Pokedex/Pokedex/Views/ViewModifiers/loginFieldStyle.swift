@@ -10,6 +10,8 @@ import SwiftUI
 struct Field: ViewModifier {
     func body(content: Content) -> some View {
         content
+            .disableAutocorrection(true)
+            .autocapitalization(.none)
             .padding()
             .background(Color.secondaryGreen)
             .cornerRadius(8)
@@ -19,7 +21,7 @@ struct Field: ViewModifier {
 }
 
 extension View {
-    func loginFieldStyle() -> some View {
+    func loginFieldSetUp() -> some View {
         self.modifier(Field())
     }
 }
